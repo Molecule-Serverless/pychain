@@ -7,26 +7,36 @@ import time
 import importlib.util
 import sys
 import base64 
+from flask import Flask
 
 func = None
+app = Flask(__name__)
 
+@app.route('/invoke')
 def start_faas_server():
+    param = {"message" : "hello world"}
+    retVal = func.handler(param)
+    # TODO: judge the type of the retVal. Now it is a string by default
+    print("retVal in flask: %s" %retVal)
+    return retVal
+
+
+def load_code():
     global func
     sys.path.append("/code")
     # load code
     if func is None:
         func = importlib.import_module('index')      
+
     
-    param = {"message" : "hello world"}
-    ####### driver hard code ######
-    # invoke the function   
-    retVal = func.handler(param)
-    # TODO: judge the type of the retVal. Now it is a string by default
-    print(retVal)
-
-def main():
-    start_faas_server()
-
 if __name__ == '__main__':
-    main()
+    load_code()
+    FLASK_PORT = os.environ['FLASK_PORT']
+    app.run(host='0.0.0.0', port=FLASK_PORT)
+
+# def main():
+#     start_faas_server()
+
+# if __name__ == '__main__':
+#     main()
     

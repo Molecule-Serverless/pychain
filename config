@@ -3,11 +3,14 @@ RUNC=~/molecule/runc/runc
 BASELINE_DRIVER_BUNDLE=~/.base/base_driver
 BASELINE_DRIVER_IMAGE=baseline_driver_image
 BASELINE_DRIVER_CONTAINER_ID=baseline_driver_container
+BASELINE_DRIVER_FLASK_PORT=5000
 
 BASELINE_MAPPER_BUNDLE=~/.base/base_mapper
 BASELINE_MAPPER_IMAGE=baseline_mapper_image
 BASELINE_MAPPER_CONTAINER_ID=baseline_mapper_container
+BASELINE_MAPPER_FLASK_PORT=5001
 
 BASELINE_REDUCER_BUNDLE=~/.base/base_reducer
 BASELINE_REDUCER_IMAGE=baseline_reducer_image
 BASELINE_REDUCER_CONTAINER_ID=baseline_reducer_container
+BASELINE_REDUCER_FLASK_PORT=5002

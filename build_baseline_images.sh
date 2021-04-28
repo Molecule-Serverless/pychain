@@ -12,6 +12,7 @@ sudo mkdir -p $BASELINE_DRIVER_BUNDLE/rootfs
 if [[ ! -f "$BASELINE_DRIVER_BUNDLE/config.json" ]]; then
     echo "Cannot find config.json. Paste a new one"
     sudo cp $BASEDIR/runtime_chain/baseline/baseline_chain_config.json $BASELINE_DRIVER_BUNDLE/config.json
+    sudo sed -i "s/\"FLASK_PORT=5000\"/\"FLASK_PORT=$BASELINE_DRIVER_FLASK_PORT\"/g" $BASELINE_DRIVER_BUNDLE/config.json
 fi
 sudo docker export `docker create $BASELINE_DRIVER_IMAGE` | sudo tar -C $BASELINE_DRIVER_BUNDLE/rootfs -xf -
 
@@ -22,6 +23,7 @@ sudo mkdir -p $BASELINE_MAPPER_BUNDLE/rootfs
 if [[ ! -f "$BASELINE_MAPPER_BUNDLE/config.json" ]]; then
     echo "Cannot find config.json. Paste a new one"
     sudo cp $BASEDIR/runtime_chain/baseline/baseline_chain_config.json $BASELINE_MAPPER_BUNDLE/config.json
+    sudo sed -i "s/\"FLASK_PORT=5000\"/\"FLASK_PORT=$BASELINE_MAPPER_FLASK_PORT\"/g" $BASELINE_MAPPER_BUNDLE/config.json
 fi
 sudo docker export `docker create $BASELINE_MAPPER_IMAGE` | sudo tar -C $BASELINE_MAPPER_BUNDLE/rootfs -xf -
 
@@ -32,5 +34,6 @@ sudo mkdir -p $BASELINE_REDUCER_BUNDLE/rootfs
 if [[ ! -f "$BASELINE_REDUCER_BUNDLE/config.json" ]]; then
     echo "Cannot find config.json. Paste a new one"
     sudo cp $BASEDIR/runtime_chain/baseline/baseline_chain_config.json $BASELINE_REDUCER_BUNDLE/config.json
+    sudo sed -i "s/\"FLASK_PORT=5000\"/\"FLASK_PORT=$BASELINE_REDUCER_FLASK_PORT\"/g" $BASELINE_REDUCER_BUNDLE/config.json
 fi
 sudo docker export `docker create $BASELINE_REDUCER_IMAGE` | sudo tar -C $BASELINE_REDUCER_BUNDLE/rootfs -xf -
