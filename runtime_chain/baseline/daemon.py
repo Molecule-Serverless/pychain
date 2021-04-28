@@ -7,15 +7,16 @@ import time
 import importlib.util
 import sys
 import base64 
-from flask import Flask
+from flask import Flask, request
 
 func = None
 app = Flask(__name__)
 
-@app.route('/invoke')
+@app.route('/invoke', methods = ["POST"])
 def start_faas_server():
-    param = {"message" : "hello world"}
-    retVal = func.handler(param)
+    getParam = request.get_json()
+    # TODO: add error handling for param and handler
+    retVal = func.handler(getParam)
     # TODO: judge the type of the retVal. Now it is a string by default
     print("retVal in flask: %s" %retVal)
     return retVal
