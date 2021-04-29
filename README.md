@@ -5,5 +5,10 @@
 ./build_baseline_images.sh
 
 # Run baseline containers. 3 containers listen 5000, 5001, 5002 port on host respectively
-./run_baseline_containers.sh
+./docker_run_baseline_containers.sh
+
+# Send invoke request to driver
+./baseline_send_invoke.sh
+
+# Only driver's port is exposed to host :5000. You can modify the port mapping configurations in docker-compose.yml
 ```

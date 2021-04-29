@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+    baseline_driver:
+        image: "${BASELINE_DRIVER_IMAGE:-baseline_driver_image}"
+        ports: 
+            - "5000:5000"
+        environment: 
+            LC_ALL: C.UTF-8
+            LANG: C.C.UTF-8
+            FUNC_NAME: baseline_driver
+            NEXT_FUNC: baseline_mapper
+    baseline_mapper:
+        image: "${BASELINE_MAPPER_IMAGE:-baseline_mapper_image}"
+        environment: 
+            LC_ALL: C.UTF-8
+            LANG: C.C.UTF-8
+            FUNC_NAME: baseline_mapper
+            NEXT_FUNC: baseline_reducer
+    baseline_reducer:
+        image: "${BASELINE_REDUCER_IMAGE:-baseline_reducer_image}"
+        environment: 
+            LC_ALL: C.UTF-8
+            LANG: C.C.UTF-8
+            FUNC_NAME: baseline_reducer
+            
