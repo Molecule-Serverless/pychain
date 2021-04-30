@@ -10,5 +10,6 @@
 # Send invoke request to driver
 ./baseline_send_invoke.sh
 
-# Only driver's port is exposed to host :5000. You can modify the port mapping configurations in docker-compose.yml
+# stop all containers
+./delete_containers.sh # a little bit slow....
 ```

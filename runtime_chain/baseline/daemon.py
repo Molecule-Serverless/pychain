@@ -21,13 +21,24 @@ def start_faas_server():
     # TODO: add error handling for param and handler
     retVal = func.handler(getParam)
     # TODO: judge the type of the retVal. Now it is a dict by default
-    next_func = os.environ.get("NEXT_FUNC")
-    if next_func == None:
+
+    # Use docker compose to deploy
+    # next_func = os.environ.get("NEXT_FUNC")
+    # if next_func == None:
+    #     endTime = int(round(time.time() * 1000))
+    #     retVal["end2end_%s" %funcName] = endTime - startTime
+    #     return retVal
+
+    # url = "http://%s:5000/invoke" %next_func
+
+    # Use docker run to deploy and use host network
+    next_func_port = os.environ.get("NEXT_FUNC_PORT")
+    if next_func_port == None:
         endTime = int(round(time.time() * 1000))
         retVal["end2end_%s" %funcName] = endTime - startTime
         return retVal
 
-    url = "http://%s:5000/invoke" %next_func
+    url = "http://127.0.0.1:%s/invoke" %next_func_port
 
     resp = requests.post(url, json = retVal)
     retVal = eval(resp.content)
