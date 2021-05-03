@@ -1,0 +1,33 @@
+{"end2end_baseline_driver":23,"end2end_baseline_mapper":13,"end2end_baseline_reducer":0,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   5695     86 --:--:-- --:--:-- --:--:--  5782
+{"end2end_baseline_driver":20,"end2end_baseline_mapper":11,"end2end_baseline_reducer":1,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   5954     90 --:--:-- --:--:-- --:--:--  6045
+{"end2end_baseline_driver":19,"end2end_baseline_mapper":10,"end2end_baseline_reducer":0,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   6238     95 --:--:-- --:--:-- --:--:--  6333
+{"end2end_baseline_driver":18,"end2end_baseline_mapper":10,"end2end_baseline_reducer":0,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   5695     86 --:--:-- --:--:-- --:--:--  5782
+{"end2end_baseline_driver":20,"end2end_baseline_mapper":12,"end2end_baseline_reducer":0,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   5954     90 --:--:-- --:--:-- --:--:--  6333
+{"end2end_baseline_driver":19,"end2end_baseline_mapper":11,"end2end_baseline_reducer":0,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   5954     90 --:--:-- --:--:-- --:--:--  6333
+{"end2end_baseline_driver":18,"end2end_baseline_mapper":10,"end2end_baseline_reducer":0,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   5695     86 --:--:-- --:--:-- --:--:--  6045
+{"end2end_baseline_driver":20,"end2end_baseline_mapper":11,"end2end_baseline_reducer":0,"output":{"fish":207,"lions":5,"old":227}}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   133  100   131  100     2   5954     90 --:--:-- --:--:-- --:--:--  6333
+{"end2end_baseline_driver":19,"end2end_baseline_mapper":11,"end2end_baseline_reducer":1,"output":{"fish":207,"lions":5,"old":227}}
