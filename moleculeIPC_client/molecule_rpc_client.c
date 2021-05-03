@@ -200,8 +200,9 @@ int main(int argc, char *argv[]) {
 	register_self_global(server_args.os_port);
 	fprintf(stderr, "[Client] Before fifo_init\n");
 	
-	fifo_self = fifo_init();
-	global_fifo = global_fifo_init_uuid(getpid(), uuid);
+	fifo_self = fifo_init_uuid(uuid);
+	//global_fifo = global_fifo_init_uuid(getpid(), uuid);
+	global_fifo = global_fifo_init_uuid(uuid, uuid);
 	
 	fifo_server = global_fifo_connect(0x1beef);
 	printf("fifo_server in client: %d\n", fifo_server);

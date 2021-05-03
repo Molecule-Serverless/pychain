@@ -25,11 +25,11 @@ void throw(const char* message) {
 
 
 /* FIFO-based IPC */
-int fifo_init(void) //return a self-fifo (named using self pid).
+int fifo_init(int uuid) //return a self-fifo (named using self pid).
 {
 	char fifo_path[FIFO_PATH_LEN]="";
 	int fifo_fd;
-	int uuid = getpid();
+	//int uuid = getpid();
 	sprintf(fifo_path, FIFO_PATH_TEMPLATE, uuid);
 	fprintf(stderr, "[%s] fifo_path: %s\n",__func__, fifo_path);
 	if (mkfifo(fifo_path, 0666) > 0) {
