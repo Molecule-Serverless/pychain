@@ -2,3 +2,5 @@ serverless-faas-workbench/
 .vscode/
 parse_src.py
 src.txt
+*.o
+*.so

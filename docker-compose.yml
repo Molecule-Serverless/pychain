@@ -1,25 +1,36 @@
 version: "3.3"
 services:
-    baseline_driver:
-        image: "${BASELINE_DRIVER_IMAGE:-baseline_driver_image}"
-        ports: 
-            - "5000:5000"
+    moleculeIPC_driver:
+        image: "${MOLECULEIPC_DRIVER_IMAGE:-moleculeIPC_driver_image}"
+        volumes:
+            - "/tmp/fifo_dir/:/tmp/fifo_dir"
         environment: 
-            LC_ALL: C.UTF-8
-            LANG: C.C.UTF-8
-            FUNC_NAME: baseline_driver
-            NEXT_FUNC: baseline_mapper
-    baseline_mapper:
-        image: "${BASELINE_MAPPER_IMAGE:-baseline_mapper_image}"
+            FUNC_NAME: moleculeIPC_driver
+            NEXT_FUNC: moleculeIPC_mapper
+            IPC_UUID: ${MOLECULEIPC_DRIVER_IPC_UUID}
+            NEXT_UUID: ${MOLECULEIPC_MAPPER_IPC_UUID}
+        network_mode: "host"
+        ipc: host
+
+    moleculeIPC_mapper:
+        image: "${MOLECULEIPC_MAPPER_IMAGE:-moleculeIPC_mapper_image}"
+        volumes:
+            - "/tmp/fifo_dir/:/tmp/fifo_dir"
         environment: 
-            LC_ALL: C.UTF-8
-            LANG: C.C.UTF-8
-            FUNC_NAME: baseline_mapper
-            NEXT_FUNC: baseline_reducer
-    baseline_reducer:
-        image: "${BASELINE_REDUCER_IMAGE:-baseline_reducer_image}"
+            FUNC_NAME: moleculeIPC_mapper
+            NEXT_FUNC: moleculeIPC_reducer
+            IPC_UUID: ${MOLECULEIPC_MAPPER_IPC_UUID}
+            NEXT_UUID: ${MOLECULEIPC_REDUCER_IPC_UUID}
+        network_mode: "host"
+        ipc: host
+
+    moleculeIPC_reducer:
+        image: "${MOLECULEIPC_REDUCER_IMAGE:-moleculeIPC_reducer_image}"
+        volumes:
+            - "/tmp/fifo_dir/:/tmp/fifo_dir"
         environment: 
-            LC_ALL: C.UTF-8
-            LANG: C.C.UTF-8
-            FUNC_NAME: baseline_reducer
+            FUNC_NAME: moleculeIPC_reducer
+            IPC_UUID: ${MOLECULEIPC_REDUCER_IPC_UUID}
+        network_mode: "host"
+        ipc: host
             

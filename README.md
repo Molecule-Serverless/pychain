@@ -13,3 +13,18 @@
 # stop all containers
 ./delete_containers.sh # a little bit slow....
 ```
+## moleculeIPC
+``` bash
+# Build images with moleculeIPC
+./build_moleculeIPC_images.sh
+
+# Run 3 containers. For now, we use docker-compose to debug (easier to deploy/delete containers and see the output)
+./docker_run_moleculeIPC_containers.sh
+
+# Send invoke request to driver
+cd moleculeIPC_client
+make
+# The client is used to send a message with useless information
+./molecule_rpc_client cfork 
+
+```
