@@ -1,0 +1,130 @@
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 8
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 8
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030016127
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 520, 'end2end_moleculeIPC_mapper': 4188, 'end2end_moleculeIPC_driver': 5192}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 9
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 9
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030017206
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 439, 'end2end_moleculeIPC_mapper': 4118, 'end2end_moleculeIPC_driver': 5036}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 10
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 10
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030017703
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 318, 'end2end_moleculeIPC_mapper': 3886, 'end2end_moleculeIPC_driver': 4794}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 11
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 11
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030018171
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 432, 'end2end_moleculeIPC_mapper': 4334, 'end2end_moleculeIPC_driver': 5411}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 12
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 12
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030018583
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 325, 'end2end_moleculeIPC_mapper': 3808, 'end2end_moleculeIPC_driver': 4689}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 13
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 13
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030019009
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 437, 'end2end_moleculeIPC_mapper': 4256, 'end2end_moleculeIPC_driver': 5306}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 14
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 14
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030019404
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 340, 'end2end_moleculeIPC_mapper': 3889, 'end2end_moleculeIPC_driver': 4808}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 15
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 15
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030019802
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 313, 'end2end_moleculeIPC_mapper': 4301, 'end2end_moleculeIPC_driver': 5212}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 16
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 16
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030020175
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 319, 'end2end_moleculeIPC_mapper': 3884, 'end2end_moleculeIPC_driver': 4764}
+[register_self_global] invoked
+[register_self_global] resp: self_global_id: 17
+[Client] Before fifo_init
+[fifo_init_uuid] fifo_path: /tmp/fifo_dir/ipc_fifo_id-1111
+[fifo_init_uuid] mkfifo success
+[fifo_init_uuid] open success
+[global_fifo_init_uuid] invoked
+[global_fifo_init_uuid] init with uuid 457
+[global_fifo_init_uuid] resp: global_fifo_id: 17
+port: 65259, server_id: 0
+fifo_server in client: 5
+before client send ipc: 1620030027262
+{'output': {'lions': 5, 'fish': 207, 'old': 227}, 'end2end_moleculeIPC_reducer': 387, 'end2end_moleculeIPC_mapper': 4021, 'end2end_moleculeIPC_driver': 5027}
