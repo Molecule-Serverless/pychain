@@ -4,6 +4,7 @@ import json
 import os
 import time
 import requests
+import datetime
 
 import importlib.util
 import sys
@@ -14,9 +15,12 @@ func = None
 funcName = os.environ.get("FUNC_NAME")
 app = Flask(__name__)
 
+def get_time():
+    return datetime.datetime.now()
+    
 @app.route('/invoke', methods = ["POST"])
 def start_faas_server():
-    startTime = int(round(time.time() * 1000))
+    startTime = get_time()
     getParam = request.get_json()
     # TODO: add error handling for param and handler
     retVal = func.handler(getParam)
@@ -34,8 +38,8 @@ def start_faas_server():
     # Use docker run to deploy and use host network
     next_func_port = os.environ.get("NEXT_FUNC_PORT")
     if next_func_port == None:
-        endTime = int(round(time.time() * 1000))
-        retVal["end2end_%s" %funcName] = endTime - startTime
+        endTime = get_time()
+        retVal["end2end_%s" %funcName] = (endTime - startTime).microseconds
         return retVal
 
     url = "http://127.0.0.1:%s/invoke" %next_func_port
@@ -43,8 +47,8 @@ def start_faas_server():
     resp = requests.post(url, json = retVal)
     retVal = eval(resp.content)
     
-    endTime = int(round(time.time() * 1000))
-    retVal["end2end_%s" %funcName] = endTime - startTime
+    endTime = get_time()
+    retVal["end2end_%s" %funcName] = (endTime - startTime).microseconds
     print(retVal, flush= True)
     return retVal
 

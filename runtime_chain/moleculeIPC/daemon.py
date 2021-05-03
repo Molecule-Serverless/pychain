@@ -2,6 +2,7 @@
 import json
 import os
 import time
+import datetime
 
 import importlib.util
 import sys
@@ -21,7 +22,7 @@ def load_code():
         func = importlib.import_module('index')      
 
 def get_time():
-    return int(round(time.time() * 1000))
+    return datetime.datetime.now()
     
 if __name__ == '__main__':
     load_code()
@@ -44,7 +45,7 @@ if __name__ == '__main__':
         if nextid_str == None:
             connect_prev = moleculeIPC.global_fifo_connect(previd) 
             endTime = get_time()
-            retVal["end2end_%s" %funcName] = endTime - startTime
+            retVal["end2end_%s" %funcName] = (endTime - startTime).microseconds
             moleculeIPC.send_to_server(connect_prev, str(retVal))
             continue
         nextid = int(nextid_str, 16)
@@ -64,7 +65,7 @@ if __name__ == '__main__':
         # previd = 1111
         connect_prev = moleculeIPC.global_fifo_connect(previd)
         endTime = get_time()
-        message_return["end2end_%s" %funcName] = endTime - startTime
+        message_return["end2end_%s" %funcName] = (endTime - startTime).microseconds
         moleculeIPC.send_to_server(connect_prev, str(message_return))
         
         # print("send response: %s" %retVal, flush = True)

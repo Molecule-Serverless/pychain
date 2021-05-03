@@ -9,6 +9,10 @@ services:
             LANG: C.C.UTF-8
             FUNC_NAME: baseline_driver
             NEXT_FUNC: baseline_mapper
+            FLASK_PORT: 5000
+            NEXT_FUNC_PORT: 5001
+            network_mode: "host"
+
     baseline_mapper:
         image: "${BASELINE_MAPPER_IMAGE:-baseline_mapper_image}"
         environment: 
@@ -16,10 +20,15 @@ services:
             LANG: C.C.UTF-8
             FUNC_NAME: baseline_mapper
             NEXT_FUNC: baseline_reducer
+            FLASK_PORT: 5001
+            NEXT_FUNC_PORT: 5002
+            network_mode: "host"
+
     baseline_reducer:
         image: "${BASELINE_REDUCER_IMAGE:-baseline_reducer_image}"
         environment: 
             LC_ALL: C.UTF-8
             LANG: C.C.UTF-8
             FUNC_NAME: baseline_reducer
-            
+            FLASK_PORT: 5002
+            network_mode: "host"
