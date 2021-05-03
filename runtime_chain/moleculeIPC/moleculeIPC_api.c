@@ -49,7 +49,9 @@ static PyObject *py_receive_from_client(PyObject *self, PyObject *args) {
     return NULL;
   }
   response = receive_from_client(fifo_self, global_fifo);
-  return Py_BuildValue("s", response);
+  fprintf(stderr, "receive from client: %s\n", response);
+  // return Py_BuildValue("s#", response, strlen(response) + 1);
+  return PyUnicode_Decode(response, strlen(response), "ascii", "ignore");
 }
 
 

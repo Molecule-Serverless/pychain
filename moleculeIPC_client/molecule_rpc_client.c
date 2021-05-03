@@ -218,6 +218,6 @@ int main(int argc, char *argv[]) {
 	if (ret == -EFIFOLOCAL){
 		ret = fifo_read(fifo_self, receive_buf, MAX_TEST_BUF_SIZE);
 	}
-	printf("receive from server: %s\n", receive_buf);
+	printf("%s\n", receive_buf);
 	return EXIT_SUCCESS;
 }

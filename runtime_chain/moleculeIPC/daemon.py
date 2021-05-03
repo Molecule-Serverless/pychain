@@ -20,6 +20,8 @@ def load_code():
     if func is None:
         func = importlib.import_module('index')      
 
+def get_time():
+    return int(round(time.time() * 1000))
     
 if __name__ == '__main__':
     load_code()
@@ -28,6 +30,7 @@ if __name__ == '__main__':
     while(True):
         # 1. receive messages and get uuid of the prev_function
         raw_message = moleculeIPC.receive_from_client(fifo_self, global_fifo)
+        startTime = get_time()
         print("raw_message: %s\n" %raw_message, flush = True)
         message = eval(raw_message)
         previd = message["uuid"]
@@ -39,7 +42,9 @@ if __name__ == '__main__':
         # 3. connect to the next function and send the param
         # If no next function, directly return the result to the caller
         if nextid_str == None:
-            connect_prev = moleculeIPC.global_fifo_connect(previd) #TODO
+            connect_prev = moleculeIPC.global_fifo_connect(previd) 
+            endTime = get_time()
+            retVal["end2end_%s" %funcName] = endTime - startTime
             moleculeIPC.send_to_server(connect_prev, str(retVal))
             continue
         nextid = int(nextid_str, 16)
@@ -50,6 +55,7 @@ if __name__ == '__main__':
         # because we assume that the next function is ready only when the first invocation has come,
         if connect_next == None:
             connect_next = moleculeIPC.global_fifo_connect(nextid)
+        print("send to next server: %s" %str(retVal), flush = True)
         moleculeIPC.send_to_server(connect_next, str(retVal))
 
         # 4. get the return value of the next function and send to the param
@@ -57,6 +63,8 @@ if __name__ == '__main__':
         message_return = eval(raw_message_return)
         # previd = 1111
         connect_prev = moleculeIPC.global_fifo_connect(previd)
+        endTime = get_time()
+        message_return["end2end_%s" %funcName] = endTime - startTime
         moleculeIPC.send_to_server(connect_prev, str(message_return))
         
         # print("send response: %s" %retVal, flush = True)

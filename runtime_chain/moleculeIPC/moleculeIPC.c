@@ -25,6 +25,7 @@ char* receive_from_client(int fifo_self, int global_fifo){
 
 	if (ret == -EFIFOLOCAL){
 		ret = fifo_read(fifo_self, test_buf, MAX_TEST_BUF_SIZE);
+		test_buf[ret] = '\0';
 	}
 	return test_buf;
 }

@@ -4,3 +4,4 @@ parse_src.py
 src.txt
 *.o
 *.so
+molecule_rpc_client
