@@ -13,6 +13,8 @@
 #include "molecule_rpc_client.h"
 #include <chos/errno.h>
 
+#define IPC_USE_LOCAL 0
+
 void parse_server_arguments(server_args_t *server_args, int argc, char *argv[]) {
     // For getopt long options
 	int long_index = 0;
@@ -203,21 +205,36 @@ int main(int argc, char *argv[]) {
 	fifo_self = fifo_init_uuid(uuid);
 	//global_fifo = global_fifo_init_uuid(getpid(), uuid);
 	global_fifo = global_fifo_init_uuid(uuid, uuid);
-	
+#if IPC_USE_LOCAL
+	fifo_server = fifo_connect(0x1beef);
+#else
+	//moleculeOS IPC
 	fifo_server = global_fifo_connect(0x1beef);
+#endif
+	
 	printf("fifo_server in client: %d\n", fifo_server);
 	struct timeval tv;
     gettimeofday(&tv,NULL);
     printf("before client send ipc: %ld\n", tv.tv_sec*1000 + tv.tv_usec/1000);
 
+#if IPC_USE_LOCAL
+	fifo_write(fifo_server, send_buf, size);
+#else
+	//moleculeOS IPC
 	global_fifo_write(fifo_server, send_buf, size);
+#endif
 
 	char* receive_buf = malloc(MAX_TEST_BUF_SIZE);
+#if IPC_USE_LOCAL
+	int ret = fifo_read(fifo_self, receive_buf, MAX_TEST_BUF_SIZE);
+#else
+	//moleculeOS IPC
 	int ret = global_fifo_read(global_fifo, receive_buf, MAX_TEST_BUF_SIZE);
 
 	if (ret == -EFIFOLOCAL){
 		ret = fifo_read(fifo_self, receive_buf, MAX_TEST_BUF_SIZE);
 	}
+#endif
 	printf("%s\n", receive_buf);
 	return EXIT_SUCCESS;
 }

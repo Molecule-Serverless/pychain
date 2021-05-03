@@ -1,5 +1,7 @@
 #include "moleculeIPC.h"
 
+#define IPC_USE_LOCAL 0
+
 void init_server(int* fifo_self_ptr, int* global_fifo_ptr, int uuid){
     int fifo_self;
 	int global_fifo;
@@ -21,11 +23,19 @@ char* receive_from_client(int fifo_self, int global_fifo){
 
 	#define MAX_TEST_BUF_SIZE 2048
 	char* test_buf = malloc(MAX_TEST_BUF_SIZE);
+#if IPC_USE_LOCAL
+	ret = fifo_read(fifo_self, test_buf, MAX_TEST_BUF_SIZE);
+	test_buf[ret] = '\0';
+	if (ret<0){
+		fprintf(stderr, "%s fifo_read error\n", __func__);
+	}
+#else //moleculeOS IPC
 	ret = global_fifo_read(global_fifo, test_buf, MAX_TEST_BUF_SIZE);
 
 	if (ret == -EFIFOLOCAL){
 		ret = fifo_read(fifo_self, test_buf, MAX_TEST_BUF_SIZE);
 		test_buf[ret] = '\0';
 	}
+#endif
 	return test_buf;
 }

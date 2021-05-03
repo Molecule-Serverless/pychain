@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "moleculeIPC.h"
 
+#define IPC_USE_LOCAL 0
+
 /* int divide(int, int, int *) */
 static PyObject *py_divide(PyObject *self, PyObject *args) {
   int a, b, quotient, remainder;
@@ -26,7 +28,11 @@ static PyObject *py_global_fifo_connect(PyObject *self, PyObject *args) {
   int global_uuid, global_fifo_connection;
   if (!PyArg_ParseTuple(args, "i", &global_uuid))
     return Py_BuildValue("i", -1);
+#if IPC_USE_LOCAL
+  global_fifo_connection = fifo_connect(global_uuid);
+#else //moleculeOS IPC
   global_fifo_connection = global_fifo_connect(global_uuid);
+#endif
   return Py_BuildValue("i", global_fifo_connection);
 
 } 
@@ -37,7 +43,11 @@ static PyObject *py_send_to_server(PyObject *self, PyObject *args){
   if (!PyArg_ParseTuple(args, "is", &connection, &message)){
     return Py_BuildValue("i", -1); 
   }
+#if IPC_USE_LOCAL
+  fifo_write(connection, message, strlen(message));
+#else //moleculeOS IPC
   global_fifo_write(connection, message, strlen(message));
+#endif
 
   return Py_BuildValue("i", 0); 
 }
