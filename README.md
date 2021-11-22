@@ -29,6 +29,6 @@ sudo moleculeos -i 0
 cd moleculeIPC_client
 make
 # The client is used to send a message with useless information
-./molecule_rpc_client cfork 
+sudo ./molecule_rpc_client cfork
 
 ```
