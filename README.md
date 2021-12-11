@@ -19,7 +19,7 @@
 ./build_moleculeIPC_images.sh
 
 # Run the molecule OS
-cd $WHERE_THE_MOLECULEOS_IS
+cd $WHERE_THE_XPU_SHIM_IS (e.g., ../xpu-shim/src)
 sudo moleculeos -i 0
 
 # Run 3 containers. For now, we use docker-compose to debug (easier to deploy/delete containers and see the output)

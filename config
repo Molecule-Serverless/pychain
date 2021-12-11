@@ -1,4 +1,4 @@
-RUNC=~/molecule/runc/runc
+RUNC=$(pwd)/../runc/runc
 
 BASELINE_DRIVER_BUNDLE=~/.base/base_driver
 BASELINE_DRIVER_IMAGE=baseline_driver_image
